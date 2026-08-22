@@ -33,11 +33,11 @@ export function slugify(text: string): string {
  * Transforms a ValidatedJainEvent into rich user-facing calendar events.
  *
  * Fasting days produce TWO clean events:
- *   1. Timed Meal Prep Reminder Event on (Day - 1) from 12:00 PM to 12:30 PM UTC
+ *   1. Timed Meal Prep Reminder Event on (Day - 1) at 2:00 PM IST (08:30 UTC) to 2:30 PM IST (09:00 UTC)
  *   2. All-Day Fasting Event on (Day of Event)
  *
  * Kalyanak events produce TWO rich events:
- *   1. Timed Temple Visit Reminder Event on (Day - 1) from 8:00 PM to 8:30 PM UTC
+ *   1. Timed Temple Visit Reminder Event on (Day - 1) at 8:00 PM IST (14:30 UTC) to 8:30 PM IST (15:00 UTC)
  *   2. All-Day Kalyanak Event on (Day of Event) enriched with Tirthankara metadata,
  *      symbol (lanchhan), parents, birthplace, moksha place, stotra, and 108 jaap mantra.
  */
@@ -53,9 +53,9 @@ export function enrichJainEvent(event: ValidatedJainEvent): EnrichedCalendarEven
   const results: EnrichedCalendarEvent[] = [];
 
   if (isFasting) {
-    // 1. Timed Meal Prep Reminder Event on (Day - 1) from 12:00 PM to 12:30 PM UTC
-    const prepStartDate = new Date(Date.UTC(year, month - 1, day - 1, 12, 0, 0));
-    const prepEndDate = new Date(Date.UTC(year, month - 1, day - 1, 12, 30, 0));
+    // 1. Timed Meal Prep Reminder Event on (Day - 1) at 2:00 PM IST (08:30 UTC) to 2:30 PM IST (09:00 UTC)
+    const prepStartDate = new Date(Date.UTC(year, month - 1, day - 1, 8, 30, 0));
+    const prepEndDate = new Date(Date.UTC(year, month - 1, day - 1, 9, 0, 0));
     const prepDateStr = prepStartDate.toISOString().substring(0, 10);
 
     const prepDescription = [
@@ -109,9 +109,9 @@ export function enrichJainEvent(event: ValidatedJainEvent): EnrichedCalendarEven
   } else if (isKalyanak) {
     const tirthankara = findTirthankara(event.title);
 
-    // 1. Timed Temple Visit Reminder Event on (Day - 1) at 8:00 PM to 8:30 PM UTC
-    const templePrepStartDate = new Date(Date.UTC(year, month - 1, day - 1, 20, 0, 0));
-    const templePrepEndDate = new Date(Date.UTC(year, month - 1, day - 1, 20, 30, 0));
+    // 1. Timed Temple Visit Reminder Event on (Day - 1) at 8:00 PM IST (14:30 UTC) to 8:30 PM IST (15:00 UTC)
+    const templePrepStartDate = new Date(Date.UTC(year, month - 1, day - 1, 14, 30, 0));
+    const templePrepEndDate = new Date(Date.UTC(year, month - 1, day - 1, 15, 0, 0));
     const templePrepDateStr = templePrepStartDate.toISOString().substring(0, 10);
 
     const templeLines = [

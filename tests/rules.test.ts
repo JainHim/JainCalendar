@@ -10,7 +10,7 @@ describe('RulesEngine - Dual-Event & Clean Formatting', () => {
     expect(isFastingEvent('Shree Parshvanath Bhagwan', 'Moksha Kalyanak', 'Kalyanak')).toBe(false);
   });
 
-  it('should generate TWO distinct events for fasting days: 12 PM Prep Reminder & All-Day Fasting Event', () => {
+  it('should generate TWO distinct events for fasting days: 2:00 PM IST Meal Prep Reminder & All-Day Fasting Event', () => {
     const event: ValidatedJainEvent = {
       title: 'Shukla Chaturdashi',
       sect: 'Digambar',
@@ -26,11 +26,12 @@ describe('RulesEngine - Dual-Event & Clean Formatting', () => {
 
     const [prepEvent, fastEvent] = enrichedList;
 
-    // 1. Meal Prep Reminder Event on Wednesday Aug 26 at 12:00 PM
+    // 1. Meal Prep Reminder Event on Wednesday Aug 26 at 2:00 PM IST (08:30:00 UTC)
     expect(prepEvent.isPrepReminder).toBe(true);
     expect(prepEvent.isAllDay).toBe(false);
     expect(prepEvent.eventTitle).toBe('🔔 Meal Prep Reminder: Shukla Chaturdashi Fast Tomorrow');
-    expect(prepEvent.eventStartDate.toISOString()).toBe('2026-08-26T12:00:00.000Z');
+    expect(prepEvent.eventStartDate.toISOString()).toBe('2026-08-26T08:30:00.000Z');
+    expect(prepEvent.eventEndDate.toISOString()).toBe('2026-08-26T09:00:00.000Z');
     expect(prepEvent.description).toContain('Please complete grocery shopping');
 
     // 2. Fasting Day Event on Thursday Aug 27 (All Day)
@@ -41,7 +42,7 @@ describe('RulesEngine - Dual-Event & Clean Formatting', () => {
     expect(fastEvent.description).toContain('Today is a sacred fasting day');
   });
 
-  it('should generate TWO distinct events for Kalyanak events: 8 PM Temple Visit Reminder & All-Day Kalyanak Event', () => {
+  it('should generate TWO distinct events for Kalyanak events: 8:00 PM IST Temple Visit Reminder & All-Day Kalyanak Event', () => {
     const event: ValidatedJainEvent = {
       title: 'Shree Parshvanath Bhagwan',
       sect: 'Digambar',
@@ -57,12 +58,12 @@ describe('RulesEngine - Dual-Event & Clean Formatting', () => {
 
     const [templePrepEvent, kalyanakEvent] = enrichedList;
 
-    // 1. Temple Visit Reminder Event on Aug 18 at 8:00 PM (20:00:00 UTC)
+    // 1. Temple Visit Reminder Event on Aug 18 at 8:00 PM IST (14:30:00 UTC)
     expect(templePrepEvent.isPrepReminder).toBe(true);
     expect(templePrepEvent.isAllDay).toBe(false);
     expect(templePrepEvent.eventTitle).toBe('🪔 Temple Visit Reminder: Shree Parshvanath Bhagwan Moksha Kalyanak Tomorrow');
-    expect(templePrepEvent.eventStartDate.toISOString()).toBe('2026-08-18T20:00:00.000Z');
-    expect(templePrepEvent.eventEndDate.toISOString()).toBe('2026-08-18T20:30:00.000Z');
+    expect(templePrepEvent.eventStartDate.toISOString()).toBe('2026-08-18T14:30:00.000Z');
+    expect(templePrepEvent.eventEndDate.toISOString()).toBe('2026-08-18T15:00:00.000Z');
     expect(templePrepEvent.description).toContain('Please plan your visit to the Jain Temple');
 
     // 2. All-Day Kalyanak Event on Aug 19

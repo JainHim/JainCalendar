@@ -21,11 +21,11 @@ describe('ICalendarExporter', () => {
     const icsContent = exporter.generateICS(enrichedList);
 
     expect(icsContent).toContain('BEGIN:VCALENDAR');
-    
-    // 1. Check Timed 12:00 PM Prep Reminder Event
+
+    // 1. Check Timed 2:00 PM IST (08:30 UTC) Prep Reminder Event
     expect(icsContent).toContain('SUMMARY:🔔 Meal Prep Reminder: Shukla Chaturdashi Fast Tomorrow');
-    expect(icsContent).toContain('DTSTART:20260826T120000Z');
-    expect(icsContent).toContain('DTEND:20260826T123000Z');
+    expect(icsContent).toContain('DTSTART:20260826T083000Z');
+    expect(icsContent).toContain('DTEND:20260826T090000Z');
 
     // 2. Check All-Day Fasting Event on Aug 27
     expect(icsContent).toContain('SUMMARY:🪷 Shukla Chaturdashi (Fasting Day)');
