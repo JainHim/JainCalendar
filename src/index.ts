@@ -4,5 +4,6 @@ export * from './validator';
 export * from './providers/base';
 export * from './providers/susjainmandir';
 export * from './providers/reference';
+export * from './providers/vitragvani';
 export * from './exporters/ics';
 export * from './exporters/gcal';

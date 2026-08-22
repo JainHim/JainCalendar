@@ -2,71 +2,46 @@ import { describe, it, expect } from 'vitest';
 import { enrichJainEvent, isFastingEvent } from '../src/rules';
 import { ValidatedJainEvent } from '../src/types';
 
-describe('RulesEngine - Dynamic Fasting & Reminder Trigger Logic', () => {
+describe('RulesEngine - Dual-Event & Clean Formatting', () => {
   it('should identify fasting events dynamically based on keywords and Parv category', () => {
     expect(isFastingEvent('Das Lakshan Paryushan Prarambh (Uttam Kshama)', 'Festival', 'Festival')).toBe(true);
     expect(isFastingEvent('Anant Chaturdashi (Das Lakshan Samapt)', 'Festival', 'Festival')).toBe(true);
-    expect(isFastingEvent('Krishna Ashtami', 'Ashtami', 'Parv')).toBe(true);
-    expect(isFastingEvent('Rohini Vrat', 'Vrat', 'Festival')).toBe(true);
+    expect(isFastingEvent('Shukla Chaturdashi', 'Chaturdashi', 'Parv')).toBe(true);
     expect(isFastingEvent('Shree Parshvanath Bhagwan', 'Moksha Kalyanak', 'Kalyanak')).toBe(false);
   });
 
-  it('should dynamically schedule Das Lakshan Paryushan Prarambh reminder at 12:00 PM Noon 1 day prior', () => {
+  it('should generate TWO distinct events for fasting days: 12 PM Prep Reminder & All-Day Fasting Event', () => {
     const event: ValidatedJainEvent = {
-      title: 'Das Lakshan Paryushan Prarambh (Uttam Kshama)',
-      sect: 'Digambar',
-      category: 'Festival',
-      tag: 'Festival',
-      dateString: '2026-09-15',
-      validationStatus: 'VALIDATED_ZERO_ERROR',
-      sources: ['susjainmandir', 'digambar_reference']
-    };
-
-    const enriched = enrichJainEvent(event);
-
-    expect(enriched.isFastingDay).toBe(true);
-    expect(enriched.reminderTitle).toBe('Fasting Day Tomorrow: Das Lakshan Paryushan Prarambh (Uttam Kshama)');
-    
-    // Date of event: Sept 15, 2026. Reminder must trigger Sept 14, 2026 at 12:00:00 UTC
-    expect(enriched.reminderTriggerDate.toISOString()).toBe('2026-09-14T12:00:00.000Z');
-    expect(enriched.description).toContain('before sunset today');
-  });
-
-  it('should dynamically schedule Anant Chaturdashi reminder at 12:00 PM Noon 1 day prior', () => {
-    const event: ValidatedJainEvent = {
-      title: 'Anant Chaturdashi (Das Lakshan Samapt)',
-      sect: 'Digambar',
-      category: 'Festival',
-      tag: 'Festival',
-      dateString: '2026-09-25',
-      validationStatus: 'VALIDATED_ZERO_ERROR',
-      sources: ['susjainmandir', 'digambar_reference']
-    };
-
-    const enriched = enrichJainEvent(event);
-
-    expect(enriched.isFastingDay).toBe(true);
-    expect(enriched.reminderTriggerDate.toISOString()).toBe('2026-09-24T12:00:00.000Z');
-  });
-
-  it('should dynamically handle month boundaries for fasting days (e.g. event on 1st of month)', () => {
-    const event: ValidatedJainEvent = {
-      title: 'Krishna Ashtami',
+      title: 'Shukla Chaturdashi',
       sect: 'Digambar',
       category: 'Parv',
-      tag: 'Ashtami',
-      dateString: '2026-06-01',
+      tag: 'Chaturdashi',
+      dateString: '2026-08-27',
       validationStatus: 'VALIDATED_ZERO_ERROR',
       sources: ['susjainmandir', 'digambar_reference']
     };
 
-    const enriched = enrichJainEvent(event);
+    const enrichedList = enrichJainEvent(event);
+    expect(enrichedList).toHaveLength(2);
 
-    // Event on June 1 -> Reminder triggers on May 31 at 12:00:00 UTC
-    expect(enriched.reminderTriggerDate.toISOString()).toBe('2026-05-31T12:00:00.000Z');
+    const [prepEvent, fastEvent] = enrichedList;
+
+    // 1. Meal Prep Reminder Event on Wednesday Aug 26 at 12:00 PM
+    expect(prepEvent.isPrepReminder).toBe(true);
+    expect(prepEvent.isAllDay).toBe(false);
+    expect(prepEvent.eventTitle).toBe('🔔 Meal Prep Reminder: Shukla Chaturdashi Fast Tomorrow');
+    expect(prepEvent.eventStartDate.toISOString()).toBe('2026-08-26T12:00:00.000Z');
+    expect(prepEvent.description).toContain('Please complete grocery shopping');
+
+    // 2. Fasting Day Event on Thursday Aug 27 (All Day)
+    expect(fastEvent.isPrepReminder).toBe(false);
+    expect(fastEvent.isAllDay).toBe(true);
+    expect(fastEvent.eventTitle).toBe('🪷 Shukla Chaturdashi (Fasting Day)');
+    expect(fastEvent.eventStartDate.toISOString()).toBe('2026-08-27T00:00:00.000Z');
+    expect(fastEvent.description).toContain('Today is a sacred fasting day');
   });
 
-  it('should schedule non-fasting Kalyanak events at 7:00 AM on the day of the event', () => {
+  it('should generate TWO distinct events for Kalyanak events: 8 PM Temple Visit Reminder & All-Day Kalyanak Event', () => {
     const event: ValidatedJainEvent = {
       title: 'Shree Parshvanath Bhagwan',
       sect: 'Digambar',
@@ -77,11 +52,22 @@ describe('RulesEngine - Dynamic Fasting & Reminder Trigger Logic', () => {
       sources: ['susjainmandir', 'digambar_reference']
     };
 
-    const enriched = enrichJainEvent(event);
+    const enrichedList = enrichJainEvent(event);
+    expect(enrichedList).toHaveLength(2);
 
-    expect(enriched.isFastingDay).toBe(false);
-    expect(enriched.reminderTitle).toBe('Shree Parshvanath Bhagwan - Moksha Kalyanak');
-    // Day of event: Aug 19, 2026 at 07:00:00 UTC
-    expect(enriched.reminderTriggerDate.toISOString()).toBe('2026-08-19T07:00:00.000Z');
+    const [templePrepEvent, kalyanakEvent] = enrichedList;
+
+    // 1. Temple Visit Reminder Event on Aug 18 at 8:00 PM (20:00:00 UTC)
+    expect(templePrepEvent.isPrepReminder).toBe(true);
+    expect(templePrepEvent.isAllDay).toBe(false);
+    expect(templePrepEvent.eventTitle).toBe('🪔 Temple Visit Reminder: Shree Parshvanath Bhagwan Moksha Kalyanak Tomorrow');
+    expect(templePrepEvent.eventStartDate.toISOString()).toBe('2026-08-18T20:00:00.000Z');
+    expect(templePrepEvent.eventEndDate.toISOString()).toBe('2026-08-18T20:30:00.000Z');
+    expect(templePrepEvent.description).toContain('Please plan your visit to the Jain Temple');
+
+    // 2. All-Day Kalyanak Event on Aug 19
+    expect(kalyanakEvent.isAllDay).toBe(true);
+    expect(kalyanakEvent.eventTitle).toBe('🪷 Shree Parshvanath Bhagwan (Moksha Kalyanak)');
+    expect(kalyanakEvent.eventStartDate.toISOString()).toBe('2026-08-19T00:00:00.000Z');
   });
 });

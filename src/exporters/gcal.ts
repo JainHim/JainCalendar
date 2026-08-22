@@ -10,9 +10,6 @@ export class GoogleCalendarSyncEngine {
     this.calendar = google.calendar({ version: 'v3', auth: authClient });
   }
 
-  /**
-   * Finds or creates a dedicated Google Calendar named "Digambar Jain Calendar"
-   */
   async getOrCreateDedicatedCalendar(): Promise<string> {
     const listRes = await this.calendar.calendarList.list();
     const calendars = listRes.data.items || [];
@@ -37,9 +34,6 @@ export class GoogleCalendarSyncEngine {
     return newCalendarId;
   }
 
-  /**
-   * Syncs an event into the dedicated "Digambar Jain Calendar" idempotently
-   */
   async syncEvent(calendarId: string, event: EnrichedCalendarEvent): Promise<{ status: 'inserted' | 'updated' | 'skipped'; gcalId?: string }> {
     if (event.validationStatus === 'DISCREPANCY') {
       console.warn(`[GCal Sync] Skipping event with DISCREPANCY: ${event.title} (${event.dateString})`);
@@ -47,33 +41,33 @@ export class GoogleCalendarSyncEngine {
     }
 
     const gcalEvent: calendar_v3.Schema$Event = {
-      summary: event.reminderTitle,
+      summary: event.eventTitle,
       description: event.description,
-      start: {
-        date: event.dateString
-      },
-      end: {
-        date: event.dateString
-      },
       extendedProperties: {
         private: {
           jainUid: event.uid,
           jainSect: event.sect,
           validationStatus: event.validationStatus
         }
-      },
-      reminders: {
-        useDefault: false,
-        overrides: [
-          {
-            method: 'popup',
-            minutes: event.isFastingDay ? 12 * 60 : 60 // 12 hours prior (12:00 PM Noon) or 1 hour prior
-          }
-        ]
       }
     };
 
-    // Check if event already exists by jainUid extended property to prevent duplicates
+    if (event.isAllDay) {
+      gcalEvent.start = { date: event.dateString };
+      gcalEvent.end = { date: event.dateString };
+    } else {
+      // Timed 12:00 PM Meal Prep Reminder Event
+      gcalEvent.start = { dateTime: event.eventStartDate.toISOString() };
+      gcalEvent.end = { dateTime: event.eventEndDate.toISOString() };
+      gcalEvent.reminders = {
+        useDefault: false,
+        overrides: [
+          { method: 'popup', minutes: 0 },
+          { method: 'popup', minutes: 15 }
+        ]
+      };
+    }
+
     const existingRes = await this.calendar.events.list({
       calendarId,
       privateExtendedProperty: [`jainUid=${event.uid}`]
@@ -98,9 +92,6 @@ export class GoogleCalendarSyncEngine {
     }
   }
 
-  /**
-   * Batch syncs all events into the dedicated "Digambar Jain Calendar"
-   */
   async syncAllEvents(events: EnrichedCalendarEvent[]): Promise<{ inserted: number; updated: number; skipped: number }> {
     const calendarId = await this.getOrCreateDedicatedCalendar();
     let inserted = 0;

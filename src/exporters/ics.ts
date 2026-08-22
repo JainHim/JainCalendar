@@ -34,26 +34,38 @@ export class ICalendarExporter {
     for (const ev of events) {
       const dtStartStr = formatICalDate(ev.eventStartDate);
       const dtEndStr = formatICalDate(ev.eventEndDate);
-      const alarmTriggerStr = formatICalDate(ev.reminderTriggerDate);
 
-      lines.push(
-        'BEGIN:VEVENT',
-        `UID:${ev.uid}`,
-        `DTSTAMP:${dtStartStr}`,
-        `DTSTART;VALUE=DATE:${dtStartStr.substring(0, 8)}`,
-        `DTEND;VALUE=DATE:${dtEndStr.substring(0, 8)}`,
-        `SUMMARY:${formatICalValue(ev.reminderTitle)}`,
-        `DESCRIPTION:${formatICalValue(ev.description)}`,
-        `CATEGORIES:Digambar Jain,${ev.category}`,
-        `X-JAIN-SECT:${ev.sect}`,
-        `X-JAIN-VALIDATION:${ev.validationStatus}`,
-        'BEGIN:VALARM',
-        'ACTION:DISPLAY',
-        `DESCRIPTION:${formatICalValue(ev.reminderTitle)}`,
-        `TRIGGER;VALUE=DATE-TIME:${alarmTriggerStr}`,
-        'END:VALARM',
-        'END:VEVENT'
-      );
+      if (ev.isAllDay) {
+        lines.push(
+          'BEGIN:VEVENT',
+          `UID:${ev.uid}`,
+          `DTSTAMP:${dtStartStr}`,
+          `DTSTART;VALUE=DATE:${dtStartStr.substring(0, 8)}`,
+          `DTEND;VALUE=DATE:${dtEndStr.substring(0, 8)}`,
+          `SUMMARY:${formatICalValue(ev.eventTitle)}`,
+          `DESCRIPTION:${formatICalValue(ev.description)}`,
+          `CATEGORIES:Digambar Jain,${ev.category}`,
+          'END:VEVENT'
+        );
+      } else {
+        // Timed 12:00 PM Meal Prep Reminder Event
+        lines.push(
+          'BEGIN:VEVENT',
+          `UID:${ev.uid}`,
+          `DTSTAMP:${dtStartStr}`,
+          `DTSTART:${dtStartStr}`,
+          `DTEND:${dtEndStr}`,
+          `SUMMARY:${formatICalValue(ev.eventTitle)}`,
+          `DESCRIPTION:${formatICalValue(ev.description)}`,
+          `CATEGORIES:Digambar Jain,Meal Prep Reminder`,
+          'BEGIN:VALARM',
+          'ACTION:DISPLAY',
+          `DESCRIPTION:${formatICalValue(ev.eventTitle)}`,
+          'TRIGGER:-PT0M', // Alarm fires at start of 12 PM prep reminder event
+          'END:VALARM',
+          'END:VEVENT'
+        );
+      }
     }
 
     lines.push('END:VCALENDAR');

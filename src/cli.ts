@@ -3,6 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { SusJainMandirProvider } from './providers/susjainmandir';
 import { DigambarReferenceProvider } from './providers/reference';
+import { VitragVaniProvider } from './providers/vitragvani';
 import { CrossValidationEngine } from './validator';
 import { enrichJainEvent } from './rules';
 import { ICalendarExporter } from './exporters/ics';
@@ -33,14 +34,22 @@ program
 
     const primaryProvider = new SusJainMandirProvider();
     const secondaryProvider = new DigambarReferenceProvider();
+    const fallbackProvider = new VitragVaniProvider();
     const validator = new CrossValidationEngine();
     const exporter = new ICalendarExporter();
 
     console.log(`[1/3] Scraping Primary Source (${primaryProvider.name})...`);
     let primaryEvents = await primaryProvider.fetchYear(year);
 
-    console.log(`[2/3] Scraping Secondary Panchang Source (${secondaryProvider.name})...`);
+    console.log(`[2/3] Scraping Secondary Source (${secondaryProvider.name})...`);
     let secondaryEvents = await secondaryProvider.fetchYear(year);
+
+    // Fallback source check from VitragVani
+    console.log(`[+] Scraping Fallback Source (${fallbackProvider.name})...`);
+    const vitragEvents = await fallbackProvider.fetchYear(year);
+    if (vitragEvents.length > 0) {
+      console.log(`    Fetched ${vitragEvents.length} events from VitragVani fallback source.`);
+    }
 
     if (month) {
       primaryEvents = primaryEvents.filter(e => e.month === month);
@@ -53,7 +62,8 @@ program
     const zeroErrorEvents = validatedEvents.filter(e => e.validationStatus === 'VALIDATED_ZERO_ERROR');
     console.log(`\n  ✅ Verified ${zeroErrorEvents.length} / ${validatedEvents.length} events with 100% Date Agreement.`);
 
-    const enrichedEvents = zeroErrorEvents.map(enrichJainEvent);
+    // Flatten dual events (Meal Prep Reminder Event + Fasting Day Event)
+    const enrichedEvents = zeroErrorEvents.flatMap(enrichJainEvent);
 
     // Save JSON data cache file
     if (options.json) {
@@ -72,7 +82,7 @@ program
       const icsPath = path.resolve(process.cwd(), options.ics);
       const icsData = exporter.generateICS(enrichedEvents);
       fs.writeFileSync(icsPath, icsData, 'utf8');
-      console.log(`\n🎉 Successfully exported ${enrichedEvents.length} Digambar calendar reminders to .ics file:`);
+      console.log(`\n🎉 Successfully exported ${enrichedEvents.length} Digambar calendar entries to .ics file:`);
       console.log(`   👉 ${icsPath}\n`);
     }
   });
