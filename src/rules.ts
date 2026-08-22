@@ -1,4 +1,5 @@
 import { ValidatedJainEvent, EnrichedCalendarEvent } from './types';
+import { findTirthankara } from './data/tirthankaras';
 
 const FASTING_KEYWORDS = [
   'ashtami',
@@ -29,14 +30,16 @@ export function slugify(text: string): string {
 }
 
 /**
- * Transforms a ValidatedJainEvent into user-facing calendar events.
+ * Transforms a ValidatedJainEvent into rich user-facing calendar events.
+ *
  * Fasting days produce TWO clean events:
  *   1. Timed Meal Prep Reminder Event on (Day - 1) from 12:00 PM to 12:30 PM UTC
  *   2. All-Day Fasting Event on (Day of Event)
  *
- * Kalyanak events produce TWO clean events:
+ * Kalyanak events produce TWO rich events:
  *   1. Timed Temple Visit Reminder Event on (Day - 1) from 8:00 PM to 8:30 PM UTC
- *   2. All-Day Kalyanak Event on (Day of Event)
+ *   2. All-Day Kalyanak Event on (Day of Event) enriched with Tirthankara metadata,
+ *      symbol (lanchhan), parents, birthplace, moksha place, stotra, and 108 jaap mantra.
  */
 export function enrichJainEvent(event: ValidatedJainEvent): EnrichedCalendarEvent[] {
   const isFasting = isFastingEvent(event.title, event.tag, event.category);
@@ -104,22 +107,38 @@ export function enrichJainEvent(event: ValidatedJainEvent): EnrichedCalendarEven
       description: fastDescription
     });
   } else if (isKalyanak) {
+    const tirthankara = findTirthankara(event.title);
+
     // 1. Timed Temple Visit Reminder Event on (Day - 1) at 8:00 PM to 8:30 PM UTC
     const templePrepStartDate = new Date(Date.UTC(year, month - 1, day - 1, 20, 0, 0));
     const templePrepEndDate = new Date(Date.UTC(year, month - 1, day - 1, 20, 30, 0));
     const templePrepDateStr = templePrepStartDate.toISOString().substring(0, 10);
 
-    const templeDescription = [
+    const templeLines = [
       `🪔 Temple Visit Reminder`,
       ``,
       `Tirthankara: ${event.title}`,
       `Occasion: ${event.tag}`,
       `Kalyanak Date: ${event.dateString}`,
-      `Tradition: Digambar Jain`,
+      `Tradition: Digambar Jain`
+    ];
+
+    if (tirthankara) {
+      templeLines.push(
+        ``,
+        `🏛️ Tirthankara Info:`,
+        `• Symbol (Lanchhan): ${tirthankara.symbol}`,
+        `• Parents: ${tirthankara.mother} & ${tirthankara.father}`,
+        `• Birthplace: ${tirthankara.birthplace}`,
+        `• Moksha Kshetra: ${tirthankara.mokshaPlace}`
+      );
+    }
+
+    templeLines.push(
       ``,
       `Guidance:`,
       `Tomorrow is the auspicious ${event.tag} of ${event.title}. Please plan your visit to the Jain Temple (Jinendra Darshan / Pujan / Abhishek) tomorrow morning.`
-    ].join('\n');
+    );
 
     results.push({
       ...event,
@@ -130,23 +149,46 @@ export function enrichJainEvent(event: ValidatedJainEvent): EnrichedCalendarEven
       eventStartDate: templePrepStartDate,
       eventEndDate: templePrepEndDate,
       isAllDay: false,
-      description: templeDescription
+      description: templeLines.join('\n')
     });
 
     // 2. All-Day Kalyanak Event on the event date itself
     const kalyanakStartDate = new Date(Date.UTC(year, month - 1, day, 0, 0, 0));
     const kalyanakEndDate = new Date(Date.UTC(year, month - 1, day, 0, 0, 0));
 
-    const kalyanakDescription = [
+    const kalyanakLines = [
       `🪷 Digambar Jain Kalyanak Notice`,
       ``,
       `Tirthankara: ${event.title}`,
       `Occasion: ${event.tag}`,
       `Date: ${event.dateString}`,
-      `Tradition: Digambar Jain`,
-      ``,
-      `Today is the auspicious ${event.tag} of ${event.title}. Wishing you a blessed Jinendra Darshan and Pujan.`
-    ].join('\n');
+      `Tradition: Digambar Jain`
+    ];
+
+    if (tirthankara) {
+      kalyanakLines.push(
+        ``,
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+        `🏛️ TIRTHANKARA METADATA`,
+        `• Tirthankara #: ${tirthankara.number} of 24`,
+        `• Symbol (Lanchhan): ${tirthankara.symbol}`,
+        `• Parents: ${tirthankara.mother} & ${tirthankara.father}`,
+        `• Birthplace: ${tirthankara.birthplace}`,
+        `• Moksha Kshetra: ${tirthankara.mokshaPlace}`,
+        ``,
+        `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+        `🪔 RECOMMENDED DEVOTIONAL RITUALS TODAY`,
+        `• Morning Pujan: Jinendra Abhishek & ${event.title} Pujan Arghya`,
+        `• Recommended Stotra: ${tirthankara.stotra}`,
+        `• 108 Jaap Mantra: "${tirthankara.jaapMantra}"`,
+        `• Evening Aarti: 5-Deepak Jinendra Aarti & Mangal Diyo`
+      );
+    } else {
+      kalyanakLines.push(
+        ``,
+        `Today is the auspicious ${event.tag} of ${event.title}. Wishing you a blessed Jinendra Darshan and Pujan.`
+      );
+    }
 
     results.push({
       ...event,
@@ -157,7 +199,7 @@ export function enrichJainEvent(event: ValidatedJainEvent): EnrichedCalendarEven
       eventStartDate: kalyanakStartDate,
       eventEndDate: kalyanakEndDate,
       isAllDay: true,
-      description: kalyanakDescription
+      description: kalyanakLines.join('\n')
     });
   } else {
     // Other Festival events (All-Day on event date)
