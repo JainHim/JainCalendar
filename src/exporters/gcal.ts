@@ -56,7 +56,6 @@ export class GoogleCalendarSyncEngine {
       gcalEvent.start = { date: event.dateString };
       gcalEvent.end = { date: event.dateString };
     } else {
-      // Timed 12:00 PM Meal Prep Reminder Event
       gcalEvent.start = { dateTime: event.eventStartDate.toISOString() };
       gcalEvent.end = { dateTime: event.eventEndDate.toISOString() };
       gcalEvent.reminders = {
@@ -106,5 +105,46 @@ export class GoogleCalendarSyncEngine {
     }
 
     return { inserted, updated, skipped };
+  }
+
+  async cleanEvents(calendarId: string = 'primary', query: string = 'Digambar Jain'): Promise<number> {
+    console.log(`[GCal Clean] Searching for events matching "${query}" on calendar "${calendarId}"...`);
+
+    let deletedCount = 0;
+    let pageToken: string | undefined = undefined;
+
+    do {
+      const res: calendar_v3.Schema$Events = (await this.calendar.events.list({
+        calendarId,
+        q: query,
+        maxResults: 250,
+        pageToken
+      })).data;
+
+      const items = res.items || [];
+      if (items.length === 0) break;
+
+      console.log(`[GCal Clean] Found ${items.length} events on current page. Deleting...`);
+
+      for (const item of items) {
+        if (item.id) {
+          try {
+            await this.calendar.events.delete({
+              calendarId,
+              eventId: item.id
+            });
+            deletedCount++;
+            process.stdout.write(`\r   🧹 Deleted ${deletedCount} events...`);
+          } catch (err: any) {
+            console.warn(`\n   ⚠️ Failed to delete event ${item.id}:`, err.message);
+          }
+        }
+      }
+
+      pageToken = res.nextPageToken || undefined;
+    } while (pageToken);
+
+    console.log(`\n\n✨ Total ${deletedCount} events successfully deleted from Google Calendar.`);
+    return deletedCount;
   }
 }

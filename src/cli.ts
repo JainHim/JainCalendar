@@ -1,12 +1,14 @@
 import { Command } from 'commander';
 import * as fs from 'fs';
 import * as path from 'path';
+import { google } from 'googleapis';
 import { SusJainMandirProvider } from './providers/susjainmandir';
 import { DigambarReferenceProvider } from './providers/reference';
 import { VitragVaniProvider } from './providers/vitragvani';
 import { CrossValidationEngine } from './validator';
 import { enrichJainEvent } from './rules';
 import { ICalendarExporter } from './exporters/ics';
+import { GoogleCalendarSyncEngine } from './exporters/gcal';
 
 const program = new Command();
 
@@ -44,7 +46,6 @@ program
     console.log(`[2/3] Scraping Secondary Source (${secondaryProvider.name})...`);
     let secondaryEvents = await secondaryProvider.fetchYear(year);
 
-    // Fallback source check from VitragVani
     console.log(`[+] Scraping Fallback Source (${fallbackProvider.name})...`);
     const vitragEvents = await fallbackProvider.fetchYear(year);
     if (vitragEvents.length > 0) {
@@ -62,10 +63,8 @@ program
     const zeroErrorEvents = validatedEvents.filter(e => e.validationStatus === 'VALIDATED_ZERO_ERROR');
     console.log(`\n  ✅ Verified ${zeroErrorEvents.length} / ${validatedEvents.length} events with 100% Date Agreement.`);
 
-    // Flatten dual events (Meal Prep Reminder Event + Fasting Day Event)
     const enrichedEvents = zeroErrorEvents.flatMap(enrichJainEvent);
 
-    // Save JSON data cache file
     if (options.json) {
       const jsonPath = path.resolve(process.cwd(), options.json);
       const jsonDir = path.dirname(jsonPath);
@@ -77,7 +76,6 @@ program
       console.log(`   👉 ${jsonPath}`);
     }
 
-    // Export .ics calendar file
     if (options.ics) {
       const icsPath = path.resolve(process.cwd(), options.ics);
       const icsData = exporter.generateICS(enrichedEvents);
@@ -107,6 +105,37 @@ program
     }
 
     console.log(`\n✨ Clean complete! All generated local calendar files removed.\n`);
+  });
+
+program
+  .command('clean-gcal')
+  .description('Bulk delete all imported Digambar Jain events from Google Calendar via API')
+  .option('-q, --query <query>', 'Search query for events to delete', 'Digambar Jain')
+  .option('-c, --calendar <calendar>', 'Calendar ID', 'primary')
+  .option('-t, --token <token>', 'Google OAuth Access Token', undefined)
+  .action(async (options) => {
+    console.log(`\n===============================================================`);
+    console.log(`  jain-cal CLI - Bulk Google Calendar Cleaner`);
+    console.log(`  Query: "${options.query}", Target Calendar: ${options.calendar}`);
+    console.log(`===============================================================\n`);
+
+    if (!options.token) {
+      const credsPath = path.resolve(process.cwd(), 'credentials.json');
+      if (!fs.existsSync(credsPath)) {
+        console.log(`⚠️ Google OAuth Token or credentials.json not found.`);
+        console.log(`   Please pass your Google Access Token using --token <access_token>`);
+        console.log(`   Or place credentials.json in the project root.\n`);
+        return;
+      }
+    }
+
+    const auth = new google.auth.OAuth2();
+    if (options.token) {
+      auth.setCredentials({ access_token: options.token });
+    }
+
+    const gcalSync = new GoogleCalendarSyncEngine(auth);
+    await gcalSync.cleanEvents(options.calendar, options.query);
   });
 
 program.parse(process.argv);
