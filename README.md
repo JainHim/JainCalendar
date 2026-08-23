@@ -9,18 +9,18 @@ Digambar Jain Calendar & Panchang 2026 — open-source CLI & Google Calendar syn
 ## ⚡ Easiest Ways to Use (Choose One Option Below)
 
 ### 🌟 Option 1: 1-Click Add to Google Calendar (Easiest for Android & Web)
-Just click the link below to add the calendar to your Google account in a single click:
+Just click the link below to add the calendar to your Google account in a single click:  
 👉 **[Click Here to Add to Google Calendar](https://calendar.google.com/calendar/render?cid=https://jainhim.github.io/JainCalendar/jain_calendar_2026.ics)**
 
 *(Click "Add" when the pop-up appears, and a separate calendar titled **"Digambar Jain Calendar 2026"** will instantly populate on your phone and web calendar!)*
 
 ---
 
-### 📲 Option 2: 1-Click Auto-Syncing Feed (Easiest for iPhone & Mac)
-Subscribe to the live auto-syncing feed on your iPhone, iPad, or Mac Calendar app:
-👉 **[Click Here to Subscribe on iPhone / Mac](webcal://jainhim.github.io/JainCalendar/jain_calendar_2026.ics)**
+### 📲 Option 2: 1-Click Auto-Syncing Feed (Easiest for iPhone, iPad & Mac)
+Click the link below on your iPhone, iPad, or Mac:  
+👉 **[Click Here to Subscribe on iPhone / Mac](https://jainhim.github.io/JainCalendar/jain_calendar_2026.ics)**
 
-*(Any future calendar additions or updates will automatically sync to your phone without you needing to do anything!)*
+*(Tapping this link on iOS or Mac automatically prompts you to **Subscribe** to the calendar in 1 click! Any future updates will sync automatically).*
 
 ---
 
