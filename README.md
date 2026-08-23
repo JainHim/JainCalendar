@@ -1,18 +1,43 @@
-# 🪷 Digambar Jain Calendar (`digambar-jain-calendar`)
+# 🪷 Digambar Jain Calendar 2026 (`digambar-jain-calendar`)
 
-> **Open-Source Digambar Jain Calendar 2026 & Fasting Reminders for Google Calendar & Apple Calendar.**
+> **Verified Digambar Jain Calendar 2026, Fasting Meal-Prep Reminders, and Tirthankara Kalyanak Guides for Google Calendar, Apple Calendar, and Outlook.**
 
-Digambar Jain Calendar & Panchang 2026 — open-source CLI & Google Calendar sync app. Cross-validates Parv Tithis (Ashtami, Chaturdashi), Das Lakshan Paryushan, Mahavir Jayanti, Deepavali, Rohini Vrat & 24 Tirthankara Kalyanaks with zero-error verification. 12 PM Noon fasting reminders for Upvas/Ekasana/Chauvihar meal prep.
+Digambar Jain Calendar & Panchang 2026 — open-source CLI & Google Calendar sync app. Cross-validates Parv Tithis (Ashtami, Chaturdashi), Das Lakshan Paryushan, Mahavir Jayanti, Deepavali, Rohini Vrat & 24 Tirthankara Kalyanaks with zero-error verification. 2:00 PM IST fasting reminders for Upvas/Ekasana/Chauvihar meal prep and 8:00 PM IST temple visit reminders.
 
 ---
 
-## ✨ Features (Simple & Easy to Use)
+## ⚡ Easiest Ways to Use (Choose One Option Below)
 
-- 🪷 **Authentic Digambar Calendar**: Scrapes official Digambar Jain Tithis, Kalyanaks, and Festivals directly from trusted temple sources.
-- 🔔 **12:00 PM Noon Fasting Reminders**: Receive a reminder at **12:00 PM Noon, 1 day BEFORE** every fasting day (*Ashtami*, *Chaturdashi*, *Rohini Vrat*, *Das Lakshan Parv*, *Sugandh Dashami*). This gives you plenty of time to buy groceries and complete meal preparation before sunset (*Chauvihar*, *Upvas*, *Ekasana*).
-- ✅ **Double-Checked Verified Dates**: Every date is cross-checked against multiple calendar sources to ensure 100% accuracy with zero margin of error.
-- 📅 **Dedicated Clean Calendar**: Syncs into a separate *"Digambar Jain Calendar"* on your Google account so your personal work and family events stay clean and un-cluttered.
-- 📱 **Works on All Devices**: Easily imports into Google Calendar (Android / iPhone / Web), Apple Calendar (Mac / iOS), or Outlook with 1-click.
+### 🌟 Option 1: 1-Click Add to Google Calendar (Easiest for Android & Web)
+Just click the link below to add the calendar to your Google account in a single click:
+👉 **[Click Here to Add to Google Calendar](https://calendar.google.com/calendar/render?cid=https://jainhim.github.io/JainCalendar/jain_calendar_2026.ics)**
+
+*(Click "Add" when the pop-up appears, and a separate calendar titled **"Digambar Jain Calendar 2026"** will instantly populate on your phone and web calendar!)*
+
+---
+
+### 📲 Option 2: 1-Click Auto-Syncing Feed (Easiest for iPhone & Mac)
+Subscribe to the live auto-syncing feed on your iPhone, iPad, or Mac Calendar app:
+👉 **[Click Here to Subscribe on iPhone / Mac](webcal://jainhim.github.io/JainCalendar/jain_calendar_2026.ics)**
+
+*(Any future calendar additions or updates will automatically sync to your phone without you needing to do anything!)*
+
+---
+
+### 📁 Option 3: Manual File Download & Import (.ics File)
+If you prefer downloading the calendar file directly to your computer:
+1. Download **[`jain_calendar_2026.ics`](https://jainhim.github.io/JainCalendar/jain_calendar_2026.ics)**.
+2. In Google Calendar, create a new calendar named **"Digambar Jain Calendar 2026"**.
+3. Go to **Settings $\rightarrow$ Import & export $\rightarrow$ Import**, select `jain_calendar_2026.ics`, and click **Import**.
+
+---
+
+## ✨ Key Features
+
+- 🔔 **2:00 PM IST Fasting Prep Reminders**: Fires a notification at 2:00 PM IST the day BEFORE every fasting day (*Ashtami*, *Chaturdashi*, *Rohini Vrat*, *Das Lakshan Parv*, *Sugandh Dashami*) to complete grocery buying & cooking before sunset (*Chauvihar* / *Upvas* / *Ekasana*).
+- 🪔 **8:00 PM IST Temple Visit Reminders**: Fires a notification at 8:00 PM IST the evening BEFORE every Tirthankara Kalyanak to plan your morning temple visit (*Jinendra Darshan / Pujan / Abhishek*).
+- 🏛️ **Rich Tirthankara Metadata & Ritual Guides**: Every Kalyanak includes the Tirthankara's Symbol (Lanchhan 🐂🐍🦁), Parents, Birthplace, Moksha Kshetra, recommended Stotra (*Bhaktamara* / *Parshvanath Stotra*), and 108 Jaap Mantras.
+- ✅ **100% Cross-Validated Accuracy**: Every date is double-checked across multiple sources (`susjainmandir.com`, `vitragvani.com`, Digambar Panchang) with zero margin of error.
 
 ---
 
@@ -21,34 +46,21 @@ Digambar Jain Calendar & Panchang 2026 — open-source CLI & Google Calendar syn
 - **Fasting Parv Tithis**: Every *Krishna Ashtami*, *Krishna Chaturdashi*, *Shukla Ashtami*, and *Shukla Chaturdashi*.
 - **Das Lakshan Paryushan Parv**: Complete 10-day schedule (*Uttam Kshama* through *Anant Chaturdashi* & *Kshamavani Parv*).
 - **Festivals & Vrats**: *Sugandh Dashami*, *Mahavir Jayanti*, *Deepavali / Mahavir Nirvana*, *Veer Nirvana Samvat 2553*, *Rohini Vrat*, *Akshay Tritiya*, *Ashtahnika Parv*.
-- **Tirthankara Kalyanaks**: All 5 Kalyanaks (*Garbh*, *Janma*, *Tap*, *Gyan*, *Moksha*) for all 24 Tirthankaras.
+- **24 Tirthankara Kalyanaks**: All 5 Kalyanaks (*Garbh*, *Janma*, *Tap*, *Gyan*, *Moksha*) for all 24 Tirthankaras.
 
 ---
 
-## 🚀 Quick Start Guide
+## 🛠️ CLI Developer Usage (Optional)
 
-### 1. Download & Setup
+If you want to run the open-source CLI locally:
 ```bash
 git clone https://github.com/JainHim/JainCalendar.git
 cd JainCalendar
 npm install
 npm run build
-```
 
-### 2. Export 2026 Calendar (.ics File)
-To generate your 2026 Digambar Jain Calendar file:
-```bash
+# Scrape and export 2026 events
 npx ts-node src/cli.ts sync --year 2026
-```
-This generates `jain_calendar_2026.ics` which you can open and import into Google Calendar or iPhone Calendar with a single click!
-
----
-
-## 🧪 Verification & Testing
-
-Run unit tests to verify rules and date accuracy:
-```bash
-npm test
 ```
 
 ---

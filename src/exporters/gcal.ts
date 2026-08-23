@@ -1,7 +1,7 @@
 import { google, calendar_v3 } from 'googleapis';
 import { EnrichedCalendarEvent } from '../types';
 
-export const DEDICATED_CALENDAR_NAME = 'Digambar Jain Calendar';
+export const DEDICATED_CALENDAR_NAME = 'Digambar Jain Calendar 2026';
 
 export class GoogleCalendarSyncEngine {
   private calendar: calendar_v3.Calendar;

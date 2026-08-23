@@ -27,7 +27,7 @@ export class ICalendarExporter {
       'PRODID:-//Jainism Community//Digambar Jain Calendar Sync CLI//EN',
       'CALSCALE:GREGORIAN',
       'METHOD:PUBLISH',
-      'X-WR-CALNAME:Digambar Jain Calendar & Fasting Reminders',
+      'X-WR-CALNAME:Digambar Jain Calendar 2026',
       'X-WR-TIMEZONE:UTC'
     ];
 
@@ -48,7 +48,7 @@ export class ICalendarExporter {
           'END:VEVENT'
         );
       } else {
-        // Timed 12:00 PM Meal Prep Reminder Event
+        // Timed Meal Prep or Temple Visit Reminder Event
         lines.push(
           'BEGIN:VEVENT',
           `UID:${ev.uid}`,
@@ -57,11 +57,11 @@ export class ICalendarExporter {
           `DTEND:${dtEndStr}`,
           `SUMMARY:${formatICalValue(ev.eventTitle)}`,
           `DESCRIPTION:${formatICalValue(ev.description)}`,
-          `CATEGORIES:Digambar Jain,Meal Prep Reminder`,
+          `CATEGORIES:Digambar Jain,Reminder`,
           'BEGIN:VALARM',
           'ACTION:DISPLAY',
           `DESCRIPTION:${formatICalValue(ev.eventTitle)}`,
-          'TRIGGER:-PT0M', // Alarm fires at start of 12 PM prep reminder event
+          'TRIGGER:-PT0M',
           'END:VALARM',
           'END:VEVENT'
         );
