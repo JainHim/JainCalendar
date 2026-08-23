@@ -32,7 +32,7 @@ describe('RulesEngine - Dual-Event & Clean Formatting', () => {
     expect(prepEvent.eventTitle).toBe('🔔 Meal Prep Reminder: Shukla Chaturdashi Fast Tomorrow');
     expect(prepEvent.eventStartDate.toISOString()).toBe('2026-08-26T08:30:00.000Z');
     expect(prepEvent.eventEndDate.toISOString()).toBe('2026-08-26T09:00:00.000Z');
-    expect(prepEvent.description).toContain('Please complete grocery shopping');
+    expect(prepEvent.description).toContain('Complete grocery buying and cooking');
 
     // 2. Fasting Day Event on Thursday Aug 27 (All Day)
     expect(fastEvent.isPrepReminder).toBe(false);
@@ -64,7 +64,7 @@ describe('RulesEngine - Dual-Event & Clean Formatting', () => {
     expect(templePrepEvent.eventTitle).toBe('🪔 Temple Visit Reminder: Shree Parshvanath Bhagwan Moksha Kalyanak Tomorrow');
     expect(templePrepEvent.eventStartDate.toISOString()).toBe('2026-08-18T14:30:00.000Z');
     expect(templePrepEvent.eventEndDate.toISOString()).toBe('2026-08-18T15:00:00.000Z');
-    expect(templePrepEvent.description).toContain('Please plan your visit to the Jain Temple');
+    expect(templePrepEvent.description).toContain('Plan your Jain Temple visit');
 
     // 2. All-Day Kalyanak Event on Aug 19
     expect(kalyanakEvent.isAllDay).toBe(true);
