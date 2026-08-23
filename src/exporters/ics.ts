@@ -19,9 +19,29 @@ export function formatICalValue(text: string): string {
     .replace(/\n/g, '\\n');
 }
 
+/**
+ * RFC 5545 Section 3.1 Content Line Folding:
+ * Content lines SHOULD NOT be longer than 75 octets, excluding line breaks.
+ * Long lines are folded by inserting a CRLF immediately followed by a single space.
+ */
+export function foldICalLine(line: string): string {
+  const maxLength = 75;
+  if (line.length <= maxLength) return line;
+
+  let result = '';
+  let current = line;
+
+  while (current.length > maxLength) {
+    result += current.substring(0, maxLength) + '\r\n ';
+    current = current.substring(maxLength);
+  }
+  result += current;
+  return result;
+}
+
 export class ICalendarExporter {
   generateICS(events: EnrichedCalendarEvent[]): string {
-    const lines: string[] = [
+    const rawLines: string[] = [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
       'PRODID:-//Jainism Community//Digambar Jain Calendar Sync CLI//EN',
@@ -36,7 +56,7 @@ export class ICalendarExporter {
       const dtEndStr = formatICalDate(ev.eventEndDate);
 
       if (ev.isAllDay) {
-        lines.push(
+        rawLines.push(
           'BEGIN:VEVENT',
           `UID:${ev.uid}`,
           `DTSTAMP:${dtStartStr}`,
@@ -49,7 +69,7 @@ export class ICalendarExporter {
         );
       } else {
         // Timed Meal Prep or Temple Visit Reminder Event
-        lines.push(
+        rawLines.push(
           'BEGIN:VEVENT',
           `UID:${ev.uid}`,
           `DTSTAMP:${dtStartStr}`,
@@ -68,7 +88,10 @@ export class ICalendarExporter {
       }
     }
 
-    lines.push('END:VCALENDAR');
-    return lines.join('\r\n');
+    rawLines.push('END:VCALENDAR');
+
+    // Fold all lines strictly according to RFC 5545 (<= 75 octets per line)
+    const foldedLines = rawLines.map(line => foldICalLine(line));
+    return foldedLines.join('\r\n');
   }
 }
