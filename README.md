@@ -8,24 +8,26 @@ Digambar Jain Calendar & Panchang 2026 — open-source CLI & Google Calendar syn
 
 ## ⚡ Easiest Ways to Use (Choose One Option Below)
 
-### 🌟 Option 1: 1-Click Add to Google Calendar (Easiest for Android & Web)
-Click the link below to add the calendar to your Google account in a single click:  
-👉 **[Click Here to Add to Google Calendar](https://calendar.google.com/calendar/render?cid=https://jainhim.github.io/JainCalendar/jain_calendar_2026.ics)**
+### 🌟 Option 1: Add to Google Calendar (Android & Web)
+1. Copy this calendar feed URL:  
+   `https://jainhim.github.io/JainCalendar/jain_calendar_2026.ics`
+2. Open **[Google Calendar](https://calendar.google.com/)**.
+3. On the left sidebar, click **`+` next to "Other calendars" $\rightarrow$ From URL**.
+4. Paste the calendar URL and click **Add calendar**!
 
-*(Click "Add" when the pop-up appears, and a separate calendar titled **"Digambar Jain Calendar 2026"** will instantly populate on your phone and web calendar!)*
+*(A separate secondary calendar titled **"Digambar Jain Calendar 2026"** will instantly populate on your phone and web calendar!)*
 
 ---
 
-### 📲 Option 2: iPhone, iPad & Mac Calendar Subscribe (.ics Feed)
-Click the link below on your iPhone, iPad, or Mac:  
-👉 **[Click Here to Download & Subscribe Calendar](https://jainhim.github.io/JainCalendar/jain_calendar_2026.ics)**
+### 📲 Option 2: iPhone, iPad & Mac Calendar
+1. Download **[`jain_calendar_2026.ics`](https://jainhim.github.io/JainCalendar/jain_calendar_2026.ics)**.
+2. Double-click or tap the downloaded file to open Apple Calendar and click **"Subscribe"**!
 
-*(Clicking this link downloads `jain_calendar_2026.ics`. Simply click or double-click the downloaded file to open Apple Calendar and click **"Subscribe"**!)*
+*(Any future updates will sync automatically to your device).*
 
 ---
 
 ### 📁 Option 3: Manual File Download & Import (.ics File)
-If you prefer downloading the calendar file directly to your computer:
 1. Download **[`jain_calendar_2026.ics`](https://jainhim.github.io/JainCalendar/jain_calendar_2026.ics)**.
 2. In Google Calendar, create a new calendar named **"Digambar Jain Calendar 2026"**.
 3. Go to **Settings $\rightarrow$ Import & export $\rightarrow$ Import**, select `jain_calendar_2026.ics`, and click **Import**.
