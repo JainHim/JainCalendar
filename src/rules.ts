@@ -18,8 +18,12 @@ const FASTING_KEYWORDS = [
 
 export function isFastingEvent(title: string, tag: string, category: string): boolean {
   if (category === 'Parv') return true;
+  if (category === 'Kalyanak' || tag.toLowerCase().includes('kalyanak')) return false;
   const text = `${title} ${tag}`.toLowerCase();
-  return FASTING_KEYWORDS.some(keyword => text.includes(keyword));
+  return FASTING_KEYWORDS.some(keyword => {
+    const regex = new RegExp(`\\b${keyword}\\b`, 'i');
+    return regex.test(text);
+  });
 }
 
 export function slugify(text: string): string {

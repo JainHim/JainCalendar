@@ -1098,30 +1098,37 @@ DESCRIPTION:🪷 Digambar Jain Kalyanak: Shree Shreyansnath Bhagwan (Janma +
 CATEGORIES:Digambar Jain,Kalyanak
 END:VEVENT
 BEGIN:VEVENT
-UID:jain-cal-2026-kalyanak-shree-munisuvrat-bhagwan-prep-2026-02-13
-DTSTAMP:20260213T083000Z
-DTSTART:20260213T083000Z
-DTEND:20260213T090000Z
-SUMMARY:🔔 Meal Prep Reminder: Shree Munisuvrat Bhagwan Fast Tomorrow
-DESCRIPTION:🔔 Fasting Meal Prep Reminder: Shree Munisuvrat Bhagwan\nComple
- te grocery buying and cooking before sunset today for tomorrow's Upvas / Ek
- asana / Chauvihar.
+UID:jain-cal-2026-kalyanak-shree-munisuvrat-bhagwan-temple-2026-02-13
+DTSTAMP:20260213T143000Z
+DTSTART:20260213T143000Z
+DTEND:20260213T150000Z
+SUMMARY:🪔 Temple Visit Reminder: Shree Munisuvrat Bhagwan Moksha Kalyanak 
+ Tomorrow
+DESCRIPTION:🪔 Temple Visit Reminder: Shree Munisuvrat Bhagwan Moksha Kalya
+ nak\n• Symbol: Tortoise (Kurma / 🐢) | Parents: Mata Padmavati Devi & Raja 
+ Sumitra\n• Birthplace: Rajgir (Rajgriha) | Moksha: Shree Sammed Shikharji\n
+ Plan your Jain Temple visit (Jinendra Abhishek / Pujan) tomorrow morning.
 CATEGORIES:Digambar Jain,Reminder
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:🔔 Meal Prep Reminder: Shree Munisuvrat Bhagwan Fast Tomorrow
+DESCRIPTION:🪔 Temple Visit Reminder: Shree Munisuvrat Bhagwan Moksha Kalya
+ nak Tomorrow
 TRIGGER:-PT0M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:jain-cal-2026-kalyanak-shree-munisuvrat-bhagwan-fast-2026-02-14
+UID:jain-cal-2026-kalyanak-shree-munisuvrat-bhagwan-2026-02-14
 DTSTAMP:20260214T000000Z
 DTSTART;VALUE=DATE:20260214
 DTEND;VALUE=DATE:20260214
-SUMMARY:🪷 Shree Munisuvrat Bhagwan (Fasting Day)
-DESCRIPTION:🪷 Digambar Jain Fasting Day (Shree Munisuvrat Bhagwan)\nToday 
- is a sacred fasting day (Moksha Kalyanak). Wishing you a peaceful and spiri
- tually enriching day.
+SUMMARY:🪷 Shree Munisuvrat Bhagwan (Moksha Kalyanak)
+DESCRIPTION:🪷 Digambar Jain Kalyanak: Shree Munisuvrat Bhagwan (Moksha Kal
+ yanak)\n• Tirthankara #: 20 of 24 | Symbol: Tortoise (Kurma / 🐢)\n• Parent
+ s: Mata Padmavati Devi & Raja Sumitra\n• Birthplace: Rajgir (Rajgriha) | Mo
+ ksha: Shree Sammed Shikharji\n• Pujan: Jinendra Abhishek & Shree Munisuvrat
+  Bhagwan Pujan Arghya\n• Stotra: Munisuvratnath Stotra & Chalisa | Jaap: "O
+ m Hrim Arham Shree Munisuvratnathaya Namah"\n• Evening: 5-Deepak Jinendra A
+ arti & Mangal Diyo
 CATEGORIES:Digambar Jain,Kalyanak
 END:VEVENT
 BEGIN:VEVENT
@@ -1558,30 +1565,38 @@ DESCRIPTION:🪷 Digambar Jain Kalyanak: Shree Rushabhdev Bhagwan (Janma + Ta
 CATEGORIES:Digambar Jain,Kalyanak
 END:VEVENT
 BEGIN:VEVENT
-UID:jain-cal-2026-kalyanak-shree-anantnath-bhagwan-prep-2026-03-17
-DTSTAMP:20260317T083000Z
-DTSTART:20260317T083000Z
-DTEND:20260317T090000Z
-SUMMARY:🔔 Meal Prep Reminder: Shree Anantnath Bhagwan Fast Tomorrow
-DESCRIPTION:🔔 Fasting Meal Prep Reminder: Shree Anantnath Bhagwan\nComplet
- e grocery buying and cooking before sunset today for tomorrow's Upvas / Eka
- sana / Chauvihar.
+UID:jain-cal-2026-kalyanak-shree-anantnath-bhagwan-temple-2026-03-17
+DTSTAMP:20260317T143000Z
+DTSTART:20260317T143000Z
+DTEND:20260317T150000Z
+SUMMARY:🪔 Temple Visit Reminder: Shree Anantnath Bhagwan Gyan + Moksha Kal
+ yanak Tomorrow
+DESCRIPTION:🪔 Temple Visit Reminder: Shree Anantnath Bhagwan Gyan + Moksha
+  Kalyanak\n• Symbol: Porcupine / Bear (Sahi / 🦔) | Parents: Mata Sarvayasa
+ s Devi & Raja Simhasena\n• Birthplace: Ayodhya | Moksha: Shree Sammed Shikh
+ arji\nPlan your Jain Temple visit (Jinendra Abhishek / Pujan) tomorrow morn
+ ing.
 CATEGORIES:Digambar Jain,Reminder
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:🔔 Meal Prep Reminder: Shree Anantnath Bhagwan Fast Tomorrow
+DESCRIPTION:🪔 Temple Visit Reminder: Shree Anantnath Bhagwan Gyan + Moksha
+  Kalyanak Tomorrow
 TRIGGER:-PT0M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:jain-cal-2026-kalyanak-shree-anantnath-bhagwan-fast-2026-03-18
+UID:jain-cal-2026-kalyanak-shree-anantnath-bhagwan-2026-03-18
 DTSTAMP:20260318T000000Z
 DTSTART;VALUE=DATE:20260318
 DTEND;VALUE=DATE:20260318
-SUMMARY:🪷 Shree Anantnath Bhagwan (Fasting Day)
-DESCRIPTION:🪷 Digambar Jain Fasting Day (Shree Anantnath Bhagwan)\nToday i
- s a sacred fasting day (Gyan + Moksha Kalyanak). Wishing you a peaceful and
-  spiritually enriching day.
+SUMMARY:🪷 Shree Anantnath Bhagwan (Gyan + Moksha Kalyanak)
+DESCRIPTION:🪷 Digambar Jain Kalyanak: Shree Anantnath Bhagwan (Gyan + Moks
+ ha Kalyanak)\n• Tirthankara #: 14 of 24 | Symbol: Porcupine / Bear (Sahi / 
+ 🦔)\n• Parents: Mata Sarvayasas Devi & Raja Simhasena\n• Birthplace: Ayodhy
+ a | Moksha: Shree Sammed Shikharji\n• Pujan: Jinendra Abhishek & Shree Anan
+ tnath Bhagwan Pujan Arghya\n• Stotra: Anantnath Stotra | Jaap: "Om Hrim Arh
+ am Shree Anantnathaya Namah"\n• Evening: 5-Deepak Jinendra Aarti & Mangal D
+ iyo
 CATEGORIES:Digambar Jain,Kalyanak
 END:VEVENT
 BEGIN:VEVENT
@@ -2307,57 +2322,72 @@ DESCRIPTION:🪷 Digambar Jain Kalyanak: Shree Parshvanath Bhagwan (Garbh Kal
 CATEGORIES:Digambar Jain,Kalyanak
 END:VEVENT
 BEGIN:VEVENT
-UID:jain-cal-2026-kalyanak-shree-munisuvrat-bhagwan-prep-2026-04-10
-DTSTAMP:20260410T083000Z
-DTSTART:20260410T083000Z
-DTEND:20260410T090000Z
-SUMMARY:🔔 Meal Prep Reminder: Shree Munisuvrat Bhagwan Fast Tomorrow
-DESCRIPTION:🔔 Fasting Meal Prep Reminder: Shree Munisuvrat Bhagwan\nComple
- te grocery buying and cooking before sunset today for tomorrow's Upvas / Ek
- asana / Chauvihar.
+UID:jain-cal-2026-kalyanak-shree-munisuvrat-bhagwan-temple-2026-04-10
+DTSTAMP:20260410T143000Z
+DTSTART:20260410T143000Z
+DTEND:20260410T150000Z
+SUMMARY:🪔 Temple Visit Reminder: Shree Munisuvrat Bhagwan Gyan Kalyanak To
+ morrow
+DESCRIPTION:🪔 Temple Visit Reminder: Shree Munisuvrat Bhagwan Gyan Kalyana
+ k\n• Symbol: Tortoise (Kurma / 🐢) | Parents: Mata Padmavati Devi & Raja Su
+ mitra\n• Birthplace: Rajgir (Rajgriha) | Moksha: Shree Sammed Shikharji\nPl
+ an your Jain Temple visit (Jinendra Abhishek / Pujan) tomorrow morning.
 CATEGORIES:Digambar Jain,Reminder
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:🔔 Meal Prep Reminder: Shree Munisuvrat Bhagwan Fast Tomorrow
+DESCRIPTION:🪔 Temple Visit Reminder: Shree Munisuvrat Bhagwan Gyan Kalyana
+ k Tomorrow
 TRIGGER:-PT0M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:jain-cal-2026-kalyanak-shree-munisuvrat-bhagwan-fast-2026-04-11
+UID:jain-cal-2026-kalyanak-shree-munisuvrat-bhagwan-2026-04-11
 DTSTAMP:20260411T000000Z
 DTSTART;VALUE=DATE:20260411
 DTEND;VALUE=DATE:20260411
-SUMMARY:🪷 Shree Munisuvrat Bhagwan (Fasting Day)
-DESCRIPTION:🪷 Digambar Jain Fasting Day (Shree Munisuvrat Bhagwan)\nToday 
- is a sacred fasting day (Gyan Kalyanak). Wishing you a peaceful and spiritu
- ally enriching day.
+SUMMARY:🪷 Shree Munisuvrat Bhagwan (Gyan Kalyanak)
+DESCRIPTION:🪷 Digambar Jain Kalyanak: Shree Munisuvrat Bhagwan (Gyan Kalya
+ nak)\n• Tirthankara #: 20 of 24 | Symbol: Tortoise (Kurma / 🐢)\n• Parents:
+  Mata Padmavati Devi & Raja Sumitra\n• Birthplace: Rajgir (Rajgriha) | Moks
+ ha: Shree Sammed Shikharji\n• Pujan: Jinendra Abhishek & Shree Munisuvrat B
+ hagwan Pujan Arghya\n• Stotra: Munisuvratnath Stotra & Chalisa | Jaap: "Om 
+ Hrim Arham Shree Munisuvratnathaya Namah"\n• Evening: 5-Deepak Jinendra Aar
+ ti & Mangal Diyo
 CATEGORIES:Digambar Jain,Kalyanak
 END:VEVENT
 BEGIN:VEVENT
-UID:jain-cal-2026-kalyanak-shree-munisuvrat-bhagwan-prep-2026-04-11
-DTSTAMP:20260411T083000Z
-DTSTART:20260411T083000Z
-DTEND:20260411T090000Z
-SUMMARY:🔔 Meal Prep Reminder: Shree Munisuvrat Bhagwan Fast Tomorrow
-DESCRIPTION:🔔 Fasting Meal Prep Reminder: Shree Munisuvrat Bhagwan\nComple
- te grocery buying and cooking before sunset today for tomorrow's Upvas / Ek
- asana / Chauvihar.
+UID:jain-cal-2026-kalyanak-shree-munisuvrat-bhagwan-temple-2026-04-11
+DTSTAMP:20260411T143000Z
+DTSTART:20260411T143000Z
+DTEND:20260411T150000Z
+SUMMARY:🪔 Temple Visit Reminder: Shree Munisuvrat Bhagwan Janma + Tap Kaly
+ anak Tomorrow
+DESCRIPTION:🪔 Temple Visit Reminder: Shree Munisuvrat Bhagwan Janma + Tap 
+ Kalyanak\n• Symbol: Tortoise (Kurma / 🐢) | Parents: Mata Padmavati Devi & 
+ Raja Sumitra\n• Birthplace: Rajgir (Rajgriha) | Moksha: Shree Sammed Shikha
+ rji\nPlan your Jain Temple visit (Jinendra Abhishek / Pujan) tomorrow morni
+ ng.
 CATEGORIES:Digambar Jain,Reminder
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:🔔 Meal Prep Reminder: Shree Munisuvrat Bhagwan Fast Tomorrow
+DESCRIPTION:🪔 Temple Visit Reminder: Shree Munisuvrat Bhagwan Janma + Tap 
+ Kalyanak Tomorrow
 TRIGGER:-PT0M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:jain-cal-2026-kalyanak-shree-munisuvrat-bhagwan-fast-2026-04-12
+UID:jain-cal-2026-kalyanak-shree-munisuvrat-bhagwan-2026-04-12
 DTSTAMP:20260412T000000Z
 DTSTART;VALUE=DATE:20260412
 DTEND;VALUE=DATE:20260412
-SUMMARY:🪷 Shree Munisuvrat Bhagwan (Fasting Day)
-DESCRIPTION:🪷 Digambar Jain Fasting Day (Shree Munisuvrat Bhagwan)\nToday 
- is a sacred fasting day (Janma + Tap Kalyanak). Wishing you a peaceful and 
- spiritually enriching day.
+SUMMARY:🪷 Shree Munisuvrat Bhagwan (Janma + Tap Kalyanak)
+DESCRIPTION:🪷 Digambar Jain Kalyanak: Shree Munisuvrat Bhagwan (Janma + Ta
+ p Kalyanak)\n• Tirthankara #: 20 of 24 | Symbol: Tortoise (Kurma / 🐢)\n• P
+ arents: Mata Padmavati Devi & Raja Sumitra\n• Birthplace: Rajgir (Rajgriha)
+  | Moksha: Shree Sammed Shikharji\n• Pujan: Jinendra Abhishek & Shree Munis
+ uvrat Bhagwan Pujan Arghya\n• Stotra: Munisuvratnath Stotra & Chalisa | Jaa
+ p: "Om Hrim Arham Shree Munisuvratnathaya Namah"\n• Evening: 5-Deepak Jinen
+ dra Aarti & Mangal Diyo
 CATEGORIES:Digambar Jain,Kalyanak
 END:VEVENT
 BEGIN:VEVENT
@@ -2826,30 +2856,38 @@ DESCRIPTION:🪷 Digambar Jain Kalyanak: Shree Vimalnath Bhagwan (Garbh Kalya
 CATEGORIES:Digambar Jain,Kalyanak
 END:VEVENT
 BEGIN:VEVENT
-UID:jain-cal-2026-kalyanak-shree-anantnath-bhagwan-prep-2026-05-13
-DTSTAMP:20260513T083000Z
-DTSTART:20260513T083000Z
-DTEND:20260513T090000Z
-SUMMARY:🔔 Meal Prep Reminder: Shree Anantnath Bhagwan Fast Tomorrow
-DESCRIPTION:🔔 Fasting Meal Prep Reminder: Shree Anantnath Bhagwan\nComplet
- e grocery buying and cooking before sunset today for tomorrow's Upvas / Eka
- sana / Chauvihar.
+UID:jain-cal-2026-kalyanak-shree-anantnath-bhagwan-temple-2026-05-13
+DTSTAMP:20260513T143000Z
+DTSTART:20260513T143000Z
+DTEND:20260513T150000Z
+SUMMARY:🪔 Temple Visit Reminder: Shree Anantnath Bhagwan Janma + Tap Kalya
+ nak Tomorrow
+DESCRIPTION:🪔 Temple Visit Reminder: Shree Anantnath Bhagwan Janma + Tap K
+ alyanak\n• Symbol: Porcupine / Bear (Sahi / 🦔) | Parents: Mata Sarvayasas 
+ Devi & Raja Simhasena\n• Birthplace: Ayodhya | Moksha: Shree Sammed Shikhar
+ ji\nPlan your Jain Temple visit (Jinendra Abhishek / Pujan) tomorrow mornin
+ g.
 CATEGORIES:Digambar Jain,Reminder
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:🔔 Meal Prep Reminder: Shree Anantnath Bhagwan Fast Tomorrow
+DESCRIPTION:🪔 Temple Visit Reminder: Shree Anantnath Bhagwan Janma + Tap K
+ alyanak Tomorrow
 TRIGGER:-PT0M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:jain-cal-2026-kalyanak-shree-anantnath-bhagwan-fast-2026-05-14
+UID:jain-cal-2026-kalyanak-shree-anantnath-bhagwan-2026-05-14
 DTSTAMP:20260514T000000Z
 DTSTART;VALUE=DATE:20260514
 DTEND;VALUE=DATE:20260514
-SUMMARY:🪷 Shree Anantnath Bhagwan (Fasting Day)
-DESCRIPTION:🪷 Digambar Jain Fasting Day (Shree Anantnath Bhagwan)\nToday i
- s a sacred fasting day (Janma + Tap Kalyanak). Wishing you a peaceful and s
- piritually enriching day.
+SUMMARY:🪷 Shree Anantnath Bhagwan (Janma + Tap Kalyanak)
+DESCRIPTION:🪷 Digambar Jain Kalyanak: Shree Anantnath Bhagwan (Janma + Tap
+  Kalyanak)\n• Tirthankara #: 14 of 24 | Symbol: Porcupine / Bear (Sahi / 🦔
+ )\n• Parents: Mata Sarvayasas Devi & Raja Simhasena\n• Birthplace: Ayodhya 
+ | Moksha: Shree Sammed Shikharji\n• Pujan: Jinendra Abhishek & Shree Anantn
+ ath Bhagwan Pujan Arghya\n• Stotra: Anantnath Stotra | Jaap: "Om Hrim Arham
+  Shree Anantnathaya Namah"\n• Evening: 5-Deepak Jinendra Aarti & Mangal Diy
+ o
 CATEGORIES:Digambar Jain,Kalyanak
 END:VEVENT
 BEGIN:VEVENT
@@ -3493,30 +3531,37 @@ DESCRIPTION:🪷 Digambar Jain Kalyanak: Shree Neminath Bhagwan (Moksha Kalya
 CATEGORIES:Digambar Jain,Kalyanak
 END:VEVENT
 BEGIN:VEVENT
-UID:jain-cal-2026-kalyanak-shree-munisuvrat-bhagwan-prep-2026-07-30
-DTSTAMP:20260730T083000Z
-DTSTART:20260730T083000Z
-DTEND:20260730T090000Z
-SUMMARY:🔔 Meal Prep Reminder: Shree Munisuvrat Bhagwan Fast Tomorrow
-DESCRIPTION:🔔 Fasting Meal Prep Reminder: Shree Munisuvrat Bhagwan\nComple
- te grocery buying and cooking before sunset today for tomorrow's Upvas / Ek
- asana / Chauvihar.
+UID:jain-cal-2026-kalyanak-shree-munisuvrat-bhagwan-temple-2026-07-30
+DTSTAMP:20260730T143000Z
+DTSTART:20260730T143000Z
+DTEND:20260730T150000Z
+SUMMARY:🪔 Temple Visit Reminder: Shree Munisuvrat Bhagwan Garbh Kalyanak T
+ omorrow
+DESCRIPTION:🪔 Temple Visit Reminder: Shree Munisuvrat Bhagwan Garbh Kalyan
+ ak\n• Symbol: Tortoise (Kurma / 🐢) | Parents: Mata Padmavati Devi & Raja S
+ umitra\n• Birthplace: Rajgir (Rajgriha) | Moksha: Shree Sammed Shikharji\nP
+ lan your Jain Temple visit (Jinendra Abhishek / Pujan) tomorrow morning.
 CATEGORIES:Digambar Jain,Reminder
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:🔔 Meal Prep Reminder: Shree Munisuvrat Bhagwan Fast Tomorrow
+DESCRIPTION:🪔 Temple Visit Reminder: Shree Munisuvrat Bhagwan Garbh Kalyan
+ ak Tomorrow
 TRIGGER:-PT0M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:jain-cal-2026-kalyanak-shree-munisuvrat-bhagwan-fast-2026-07-31
+UID:jain-cal-2026-kalyanak-shree-munisuvrat-bhagwan-2026-07-31
 DTSTAMP:20260731T000000Z
 DTSTART;VALUE=DATE:20260731
 DTEND;VALUE=DATE:20260731
-SUMMARY:🪷 Shree Munisuvrat Bhagwan (Fasting Day)
-DESCRIPTION:🪷 Digambar Jain Fasting Day (Shree Munisuvrat Bhagwan)\nToday 
- is a sacred fasting day (Garbh Kalyanak). Wishing you a peaceful and spirit
- ually enriching day.
+SUMMARY:🪷 Shree Munisuvrat Bhagwan (Garbh Kalyanak)
+DESCRIPTION:🪷 Digambar Jain Kalyanak: Shree Munisuvrat Bhagwan (Garbh Kaly
+ anak)\n• Tirthankara #: 20 of 24 | Symbol: Tortoise (Kurma / 🐢)\n• Parents
+ : Mata Padmavati Devi & Raja Sumitra\n• Birthplace: Rajgir (Rajgriha) | Mok
+ sha: Shree Sammed Shikharji\n• Pujan: Jinendra Abhishek & Shree Munisuvrat 
+ Bhagwan Pujan Arghya\n• Stotra: Munisuvratnath Stotra & Chalisa | Jaap: "Om
+  Hrim Arham Shree Munisuvratnathaya Namah"\n• Evening: 5-Deepak Jinendra Aa
+ rti & Mangal Diyo
 CATEGORIES:Digambar Jain,Kalyanak
 END:VEVENT
 BEGIN:VEVENT
@@ -4435,30 +4480,12 @@ DESCRIPTION:🪷 Digambar Jain Fasting Day (Shukla Chaturdashi)\nToday is a s
 CATEGORIES:Digambar Jain,Parv
 END:VEVENT
 BEGIN:VEVENT
-UID:jain-cal-2026-festival-janmashtami-prep-2026-09-03
-DTSTAMP:20260903T083000Z
-DTSTART:20260903T083000Z
-DTEND:20260903T090000Z
-SUMMARY:🔔 Meal Prep Reminder: Janmashtami Fast Tomorrow
-DESCRIPTION:🔔 Fasting Meal Prep Reminder: Janmashtami\nComplete grocery bu
- ying and cooking before sunset today for tomorrow's Upvas / Ekasana / Chauv
- ihar.
-CATEGORIES:Digambar Jain,Reminder
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:🔔 Meal Prep Reminder: Janmashtami Fast Tomorrow
-TRIGGER:-PT0M
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:jain-cal-2026-festival-janmashtami-fast-2026-09-04
+UID:jain-cal-2026-festival-janmashtami-2026-09-04
 DTSTAMP:20260904T000000Z
 DTSTART;VALUE=DATE:20260904
 DTEND;VALUE=DATE:20260904
-SUMMARY:🪷 Janmashtami (Fasting Day)
-DESCRIPTION:🪷 Digambar Jain Fasting Day (Janmashtami)\nToday is a sacred f
- asting day (Festival). Wishing you a peaceful and spiritually enriching day
- .
+SUMMARY:🪷 Janmashtami (Festival)
+DESCRIPTION:🪷 Digambar Jain Event: Janmashtami (Festival)
 CATEGORIES:Digambar Jain,Festival
 END:VEVENT
 BEGIN:VEVENT
@@ -4784,30 +4811,36 @@ DESCRIPTION:🪷 Digambar Jain Kalyanak: Shree Shitalnath Bhagwan (Moksha Kal
 CATEGORIES:Digambar Jain,Kalyanak
 END:VEVENT
 BEGIN:VEVENT
-UID:jain-cal-2026-kalyanak-shree-anantnath-bhagwan-prep-2026-10-25
-DTSTAMP:20261025T083000Z
-DTSTART:20261025T083000Z
-DTEND:20261025T090000Z
-SUMMARY:🔔 Meal Prep Reminder: Shree Anantnath Bhagwan Fast Tomorrow
-DESCRIPTION:🔔 Fasting Meal Prep Reminder: Shree Anantnath Bhagwan\nComplet
- e grocery buying and cooking before sunset today for tomorrow's Upvas / Eka
- sana / Chauvihar.
+UID:jain-cal-2026-kalyanak-shree-anantnath-bhagwan-temple-2026-10-25
+DTSTAMP:20261025T143000Z
+DTSTART:20261025T143000Z
+DTEND:20261025T150000Z
+SUMMARY:🪔 Temple Visit Reminder: Shree Anantnath Bhagwan Garbh Kalyanak To
+ morrow
+DESCRIPTION:🪔 Temple Visit Reminder: Shree Anantnath Bhagwan Garbh Kalyana
+ k\n• Symbol: Porcupine / Bear (Sahi / 🦔) | Parents: Mata Sarvayasas Devi &
+  Raja Simhasena\n• Birthplace: Ayodhya | Moksha: Shree Sammed Shikharji\nPl
+ an your Jain Temple visit (Jinendra Abhishek / Pujan) tomorrow morning.
 CATEGORIES:Digambar Jain,Reminder
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:🔔 Meal Prep Reminder: Shree Anantnath Bhagwan Fast Tomorrow
+DESCRIPTION:🪔 Temple Visit Reminder: Shree Anantnath Bhagwan Garbh Kalyana
+ k Tomorrow
 TRIGGER:-PT0M
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:jain-cal-2026-kalyanak-shree-anantnath-bhagwan-fast-2026-10-26
+UID:jain-cal-2026-kalyanak-shree-anantnath-bhagwan-2026-10-26
 DTSTAMP:20261026T000000Z
 DTSTART;VALUE=DATE:20261026
 DTEND;VALUE=DATE:20261026
-SUMMARY:🪷 Shree Anantnath Bhagwan (Fasting Day)
-DESCRIPTION:🪷 Digambar Jain Fasting Day (Shree Anantnath Bhagwan)\nToday i
- s a sacred fasting day (Garbh Kalyanak). Wishing you a peaceful and spiritu
- ally enriching day.
+SUMMARY:🪷 Shree Anantnath Bhagwan (Garbh Kalyanak)
+DESCRIPTION:🪷 Digambar Jain Kalyanak: Shree Anantnath Bhagwan (Garbh Kalya
+ nak)\n• Tirthankara #: 14 of 24 | Symbol: Porcupine / Bear (Sahi / 🦔)\n• P
+ arents: Mata Sarvayasas Devi & Raja Simhasena\n• Birthplace: Ayodhya | Moks
+ ha: Shree Sammed Shikharji\n• Pujan: Jinendra Abhishek & Shree Anantnath Bh
+ agwan Pujan Arghya\n• Stotra: Anantnath Stotra | Jaap: "Om Hrim Arham Shree
+  Anantnathaya Namah"\n• Evening: 5-Deepak Jinendra Aarti & Mangal Diyo
 CATEGORIES:Digambar Jain,Kalyanak
 END:VEVENT
 BEGIN:VEVENT

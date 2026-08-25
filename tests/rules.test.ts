@@ -8,6 +8,8 @@ describe('RulesEngine - Dual-Event & Clean Formatting', () => {
     expect(isFastingEvent('Anant Chaturdashi (Das Lakshan Samapt)', 'Festival', 'Festival')).toBe(true);
     expect(isFastingEvent('Shukla Chaturdashi', 'Chaturdashi', 'Parv')).toBe(true);
     expect(isFastingEvent('Shree Parshvanath Bhagwan', 'Moksha Kalyanak', 'Kalyanak')).toBe(false);
+    expect(isFastingEvent('Shree Anantnath Bhagwan', 'Garbh Kalyanak', 'Kalyanak')).toBe(false);
+    expect(isFastingEvent('Shree Munisuvrat Bhagwan', 'Moksha Kalyanak', 'Kalyanak')).toBe(false);
   });
 
   it('should generate TWO distinct events for fasting days: 2:00 PM IST Meal Prep Reminder & All-Day Fasting Event', () => {
